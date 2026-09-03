@@ -1,0 +1,27 @@
+{
+    "name": "kostamax27/vanillatext",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "axolotl-pm/pocketmine-mp": "^5.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "kostamax27\\vanillatext\\": "src/kostamax27/vanillatext"
+        }
+    },
+    "scripts": {
+        "update-item-keys": [
+            "@php tools/download-texts.php .texts/main en_US",
+            "@php tools/download-texts.php --preview .texts/preview en_US",
+            "@php tools/generate-item-keys.php vendor/axolotl-pm/bedrock-data/required_item_list.json vendor/axolotl-pm/bedrock-data/block_id_to_item_id_map.json vendor/axolotl-pm/bedrock-item-upgrade-schema/id_meta_upgrade_schema .texts/main/en_US.lang .texts/preview/en_US.lang"
+        ]
+    },
+    "extra": {
+        "virion": {
+            "spec": "3.0",
+            "namespace-root": "kostamax27\\vanillatext"
+        }
+    }
+}
